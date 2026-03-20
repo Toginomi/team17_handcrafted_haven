@@ -5,6 +5,7 @@ Rudy Pilande
 ## Colors / Themes
 * greens, browns, and an off-whites
 * Considering using tailwind css framework for design
+* all Colors: https://coolors.co/5a464c-ffd1ba-92ac86-1e3f20-345830
 
 
 ## Fonts
