@@ -1,9 +1,10 @@
 :root {
   --primary-color: #3d2d32;
-  --secondary-color: #fad7c68f;
+  --secondary-color: #fad7c6;
   --accent-1: #92AC86;
   --accent-2: #1E3F20;
   --accent-3: #345830;
+  --site-background: #fad7c68f;
 }
 
 html {
@@ -21,7 +22,7 @@ body {
   margin: 0 3rem;
 
   /* colors */
-  background-color: var(--secondary-color);
+  background-color: var(--site-background);
 }
 
 * {

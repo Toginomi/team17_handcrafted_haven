@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/app/layout_components/header/header";
 import "./globals.css";
 import { Poppins, Updock } from 'next/font/google';
+import Footer from "./layout_components/footer/footer";
 
 const headingFont = Updock({
   weight: ['400'],
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body className={`${bodyFont.className} ${headingFont.variable}`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

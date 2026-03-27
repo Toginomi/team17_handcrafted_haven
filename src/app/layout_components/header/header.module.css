@@ -1,3 +1,7 @@
+:root {
+    --header-font-size: 1.3rem;
+}
+
 .header {
     /* box model */
     padding: 1rem;
@@ -7,6 +11,7 @@
 
     /* flex */
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 2rem
 }
@@ -20,4 +25,45 @@
 
     /* colors */
     color: var(--primary-color);
+
+    /* box model */
+    
+}
+
+.siteInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.navigation {
+
+    & a {
+        /* text and font */
+        text-decoration: none;
+        padding: 0.5rem;
+        font-size: var(--header-font-size);
+
+        /* color */
+        color: var(--accent-3);
+
+        /* border */
+        border: 2px solid var(--accent-2);
+        border-radius: 5px;
+
+        /* box model */
+        margin: 0 0.5rem;
+
+        &:hover {
+            color: var(--secondary-color);
+            background-color: var(--accent-3);
+        }
+    }
+}
+
+.login{
+    /* text and font */
+    text-decoration: none;
+    font-size: var(--header-font-size);
 }
