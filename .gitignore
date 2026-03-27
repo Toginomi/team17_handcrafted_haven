@@ -42,3 +42,4 @@ next-env.d.ts
 
 # other
 gpt.masterprompt
+pnpm-lock.yaml

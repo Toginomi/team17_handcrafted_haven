@@ -6,7 +6,7 @@ export default function Nav() {
         <nav className={styles.navigation}>
             <Link href="/">Home</Link>
             <Link href="/about_us">About</Link>
-            <Link href="/Shop">Shop</Link>
+            <Link href="/shop">Shop</Link>
         </nav>
     );
 }
