@@ -5,7 +5,7 @@ export default function Nav() {
     return (
         <nav className={styles.navigation}>
             <Link href="/">Home</Link>
-            <Link href="/About">About</Link>
+            <Link href="/about_us">About</Link>
             <Link href="/Shop">Shop</Link>
         </nav>
     );
