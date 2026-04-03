@@ -5,6 +5,7 @@ export default function Footer() {
         <footer className={style.footer}>
             <p>WDD430 Team 17 | Handcrafted Haven Project | &copy;2026</p>
             <p>See our project board! <a href='https://github.com/users/woodrow-snow/projects/1'>Click here!</a></p>
+            <p>Disclaimer: Some images were made with Artificial Intelligence.</p>
         </footer>
     );
 }
