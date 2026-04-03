@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -7,11 +8,19 @@ export default function Home() {
       
       {/* HERO SECTION */}
       <section className={styles.hero}>
+        <div className={styles.heroImageWrapper}>
+          <Image 
+            src="/images/hero.jpg"
+            alt="Handcrafted wood workshop"
+            fill
+            priority
+            className={styles.heroImage}
+          />
+          <div className={styles.heroOverlay} />
+        </div>
+
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>Interested?</h1>
-          <p style={{color: 'var(--secondary-color)', marginBottom: '2rem', opacity: 0.9}}>
-            Lorem ipsum dolor sit amet.
-          </p>
           <Link href="/shop" className={styles.button}>
             Shop Now
           </Link>
