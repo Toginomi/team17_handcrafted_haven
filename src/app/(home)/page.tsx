@@ -10,7 +10,7 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroImageWrapper}>
           <Image 
-            src="/images/hero.jpg"
+            src="/images/hero-image.jpg"
             alt="Handcrafted wood workshop"
             fill
             priority
