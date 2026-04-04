@@ -156,6 +156,13 @@
   letter-spacing: 0.4px;
 }
 
+.cardButton:disabled {
+  background-color: #7ea27a;
+  cursor: not-allowed;
+  letter-spacing: 0;
+  opacity: 0.9;
+}
+
 @media (max-width: 1024px) {
   .grid,
   .productGrid {

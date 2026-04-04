@@ -81,8 +81,13 @@ export default function ShopPage() {
 
                 <p className={styles.description}>{product.description}</p>
 
-                <button type="button" className={styles.cardButton}>
-                  View Details
+                <button
+                  type="button"
+                  className={styles.cardButton}
+                  disabled
+                  aria-disabled="true"
+                >
+                  Details Coming Soon
                 </button>
               </div>
             </article>
