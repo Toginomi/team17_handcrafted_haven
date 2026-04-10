@@ -3,6 +3,8 @@ import Header from "@/app/layout_components/header/header";
 import "./globals.css";
 import { Poppins, Updock } from 'next/font/google';
 import Footer from "./layout_components/footer/footer";
+import CartBadgeUpdater from "./layout_components/cart-badge-updater";
+
 
 const headingFont = Updock({
   weight: ['400'],
@@ -34,6 +36,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${bodyFont.className} ${headingFont.variable}`}>
         <Header />
+        <CartBadgeUpdater />
         {children}
         <Footer />
       </body>
