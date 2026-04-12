@@ -125,6 +125,13 @@
   border-radius: 10px;
   border-left: 6px solid var(--accent-3);
   text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for value cards */
+.valueCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
 .valueCard h3 {
@@ -181,6 +188,80 @@
   height: 260px;
   border-radius: 10px;
   object-fit: cover;
+}
+
+/* ----------------------------- */
+/* Animations */
+/* ----------------------------- */
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.storySection,
+.missionSection,
+.valuesSection,
+.offerSection {
+  animation: fadeInUp 0.9s ease forwards;
+  opacity: 0;
+}
+
+.missionSection {
+  animation-delay: 0.15s;
+}
+
+.valuesSection {
+  animation-delay: 0.3s;
+}
+
+.offerSection {
+  animation-delay: 0.45s;
+}
+
+.storyRealImage,
+.missionRealImage,
+.offerRealImage {
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+
+/* Hover zoom for images */
+.storyRealImage,
+.missionRealImage,
+.offerRealImage {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.storyRealImage:hover,
+.missionRealImage:hover,
+.offerRealImage:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ----------------------------- */
+/* Section Dividers */
+/* ----------------------------- */
+
+.storySection,
+.missionSection,
+.valuesSection,
+.offerSection {
+  padding-bottom: 3rem;
+  border-bottom: 2px solid rgba(30, 63, 32, 0.25);
+  margin-bottom: 3rem;
+}
+
+.offerSection {
+  border-bottom: none;
 }
 
 /* ----------------------------- */
