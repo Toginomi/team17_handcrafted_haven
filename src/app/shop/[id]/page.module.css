@@ -1,0 +1,91 @@
+.page {
+  width: 100%;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: var(--accent-3);
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(250, 215, 198, 0.35);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent-3);
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--primary-color);
+  opacity: 0.85;
+}
+
+.addButton {
+  background-color: var(--accent-3);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 1rem 1.6rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease, letter-spacing 0.2s ease;
+}
+
+.addButton:hover {
+  background-color: var(--accent-2);
+  letter-spacing: 0.4px;
+}
+
+@media (min-width: 768px) {
+  .layout {
+    flex-direction: row;
+  }
+
+  .imageWrap {
+    flex: 1.2;
+  }
+
+  .info {
+    flex: 1;
+  }
+}
