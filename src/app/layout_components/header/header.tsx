@@ -40,7 +40,6 @@ export default function Header() {
                     <Nav /> 
                 </div>
 
-
                 {/* login button */}
                 <LoginButton />
                 
@@ -64,7 +63,6 @@ export default function Header() {
                     </span>
                     <span id="cart-count">0</span>
                 </Link>
-
 
                 {/* Hamburger button for Mobile menu */}
                 <Hamburger toggleMenu={toggleMenu} />
