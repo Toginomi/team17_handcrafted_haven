@@ -57,7 +57,7 @@ export default function LoginForm() {
             </div>
             <input
                 type="submit"
-                value="Login"
+                value="Log in"
                 id="login"
                 className={styles.login}
                 name="login"
