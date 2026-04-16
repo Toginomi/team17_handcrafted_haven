@@ -30,15 +30,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${bodyFont.className} ${headingFont.variable}`}>
         <SessionWrapper>
-          <Header /> 
+          <Toaster position="top-right" />
+          <Header />
+          <CartBadgeUpdater />
           {children}
+          <Footer />
+          
         </SessionWrapper>
       </body>
     </html>
