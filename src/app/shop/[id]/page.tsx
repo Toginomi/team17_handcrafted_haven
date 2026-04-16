@@ -3,6 +3,7 @@ import { fetchProductDetails } from "@/lib/data";
 import styles from "./page.module.css";
 import { Product } from "@/lib/definitions";
 import AddToCartButton from "../../layout_components/AddToCartButton";
+import { createReviews } from "@/lib/actions";
 
 export default async function ProductDetailPage({ 
   params 
@@ -80,6 +81,36 @@ export default async function ProductDetailPage({
                 ) : (
                     <p>No reviews yet for this piece.</p>
                 )}
+            </section>
+            {/* product review */}
+            <section className={styles.letReview}>
+                <h2>Leave a review for this product!</h2>
+                <form className={styles.reviewForm} action={createReviews}>
+                    {/* how many stars */}
+                    <label htmlFor="rating" className={styles.inputLabel}>
+                        How many stars would you give this product?:
+                        <input
+                            type="number"
+                            max="5"
+                            min="1"
+                            required
+                            placeholder="5"
+                            name="rating"
+                            id="rating"
+                        />
+                    </label>
+                    <label htmlFor="comment" className={styles.inputLabel}>
+                        Comments:
+                        <textarea
+                            name="comment"
+                            required
+                            placeholder="Your comment here!"
+                        />
+                    </label>
+                    {/* hidden input */}
+                    <input type="hidden" value={product.id} name="product_id"/>
+                    <input type="submit" value="Submit Review" className={styles.submitReview} />
+                </form>
             </section>
         </main>
     );
