@@ -1,11 +1,12 @@
 import type { NextConfig } from "next";
+import { hostname } from "os";
 
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
   turbopack: {
-  root: process.cwd(),
-},
+    root: process.cwd(),
+  },
 };
 
 export default nextConfig;
