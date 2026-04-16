@@ -7,37 +7,42 @@ export const authConfig = {
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
+      // In Middleware, sometimes role is nested or needs a fallback
       const role = auth?.user?.role;
 
       const isAccountArea = nextUrl.pathname.startsWith('/account');
-      const isSignUpPage = nextUrl.pathname === '/account/add'; // Specific check
+      const isSignUpPage = nextUrl.pathname === '/account/add';
       const isAdminArea = nextUrl.pathname.startsWith('/admin');
+      const isSellerArea = nextUrl.pathname.startsWith('/seller');
 
-      // 1. PUBLIC EXCEPTION: Allow anyone to reach the Sign Up page
-      if (isSignUpPage) {
-        return true; 
-      }
+      if (isSignUpPage) return true; 
 
-      // 2. PROTECTED AREAS: If trying to access any account/admin page
       if (isAccountArea || isAdminArea) {
-        if (!isLoggedIn) return false; // Redirects to /login
-
-        // Only Sellers and Admins can access seller actions (if you have other seller pages later)
-        // Since /account/add is now public, this check won't trigger for it anymore.
+        if (!isLoggedIn) return false;
         
         if (isAdminArea && role !== 'admin') {
           return Response.redirect(new URL('/account/home', nextUrl));
         }
-
         return true;
       }
 
-      // 3. LOGGED-IN REDIRECT: Send away from login page if already signed in
+      if (isSellerArea) {
+        if (!isLoggedIn) return false;
+
+        // DEBUG: If you are getting redirected, it's because 'role' is undefined here
+        // We add a check: if role is missing, we might let the PAGE handle the redirect
+        // instead of the Middleware, to avoid "stale" cookie issues.
+        if (role && role !== 'seller' && role !== 'admin') {
+          return Response.redirect(new URL('/account/home', nextUrl));
+        }
+        return true;
+      }
+
       if (isLoggedIn && nextUrl.pathname === '/login') {
         return Response.redirect(new URL('/account/home', nextUrl));
       }
 
-      return true; // All other pages (Home, Shop) are public
+      return true;
     },
   },
   providers: [], 
