@@ -4,6 +4,8 @@ import { fetchProductDetails } from "@/lib/data";
 import styles from "./page.module.css";
 import { Product } from "@/lib/definitions";
 import AddToCartButton from "../../layout_components/AddToCartButton";
+import { createReviews } from "@/lib/actions";
+import { auth } from "@/auth"; // 1. Import auth
 
 export default async function ProductDetailPage({ 
   params 
@@ -12,6 +14,9 @@ export default async function ProductDetailPage({
 }) {
   const { id } = await params;
   const { product, reviews } = await fetchProductDetails(id);
+  
+  // 2. Check for the session
+  const session = await auth();
 
   if (!product) {
     return (
@@ -93,6 +98,52 @@ export default async function ProductDetailPage({
           <p>No reviews yet for this piece.</p>
         )}
       </section>
+
+      {/* 3. Wrap the Review Form in a conditional check */}
+      {session ? (
+        <section className={styles.letReview}>
+          <h2>Leave a review for this product!</h2>
+          <form className={styles.reviewForm} action={createReviews}>
+            
+            <label htmlFor="rating" className={styles.inputLabel}>
+              How many stars would you give this product?:
+              <input
+                type="number"
+                max="5"
+                min="1"
+                required
+                placeholder="5"
+                name="rating"
+                id="rating"
+              />
+            </label>
+
+            <label htmlFor="comment" className={styles.inputLabel}>
+              Comments:
+              <textarea
+                name="comment"
+                id="comment"
+                required
+                placeholder="Your comment here!"
+              />
+            </label>
+
+            <input type="hidden" value={product.id} name="product_id" />
+
+            <input
+              type="submit"
+              value="Submit Review"
+              className={styles.submitReview}
+            />
+          </form>
+        </section>
+      ) : (
+        <section className={styles.letReview}>
+          <h2>Want to leave a review?</h2>
+          <p>Please <Link href="/login" style={{color: 'blue', textDecoration: 'underline'}}>log in</Link> to share your thoughts on this product.</p>
+        </section>
+      )}
+
     </main>
   );
 }

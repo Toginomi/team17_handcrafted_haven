@@ -5,6 +5,7 @@ import { Poppins, Updock } from 'next/font/google';
 import Footer from "./layout_components/footer/footer";
 import CartBadgeUpdater from "./layout_components/cart-badge-updater";
 import { Toaster } from "react-hot-toast";
+import SessionWrapper from "@/components/SessionWrapper";
 
 
 const headingFont = Updock({
@@ -29,18 +30,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${bodyFont.className} ${headingFont.variable}`}>
-        <Toaster position="top-right" />
-        
-        <Header />
-        <CartBadgeUpdater />
-        {children}
-        <Footer />
+      <body>
+        <SessionWrapper>
+          <Header /> 
+          {children}
+        </SessionWrapper>
       </body>
     </html>
   );
