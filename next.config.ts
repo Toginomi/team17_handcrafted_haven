@@ -1,26 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
   reactCompiler: true,
   turbopack: {
-    root: process.cwd(),
-  },
-
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "placehold.co",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-      {
-        protocol: "https",
-        hostname: "images.pexels.com",
-      }
-    ],
-  },
+  root: process.cwd(),
+},
 };
 
 export default nextConfig;
