@@ -4,8 +4,6 @@ import "./globals.css";
 import { Poppins, Updock } from 'next/font/google';
 import Footer from "./layout_components/footer/footer";
 import CartBadgeUpdater from "./layout_components/cart-badge-updater";
-import { Toaster } from "react-hot-toast";
-
 
 const headingFont = Updock({
   weight: ['400'],
@@ -35,8 +33,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${bodyFont.className} ${headingFont.variable}`}>
-        <Toaster position="top-right" />
-        
         <Header />
         <CartBadgeUpdater />
         {children}

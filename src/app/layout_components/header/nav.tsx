@@ -9,7 +9,6 @@ export default function Nav() {
             <NavLink href="/">Home</NavLink>
             <NavLink href="/about_us">About</NavLink>
             <NavLink href="/shop">Shop</NavLink>
-            <NavLink href="/seller/products">Seller Dashboard</NavLink>
         </nav>
     );
 }
